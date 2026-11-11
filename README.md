@@ -2,13 +2,13 @@
 
 # NieR:Automata — native Android port
 
-Runs the Nintendo Switch version of **NieR:Automata The End of YoRHa Edition** natively on Android handhelds, from **your own copy** of the game.
-It is not an emulator: the game's own ARM64 code runs directly on the device's CPU, while this project reimplements the
-parts of the console it talks to.
+Runs the console version of **NieR:Automata The End of YoRHa Edition** natively on Android handhelds, from **your own copy** of the game.
+The game's own ARM64 code runs directly on the device's CPU, while this project reimplements the parts of the console
+it talks to.
 
-> **Unofficial, non-commercial fan project.** Not affiliated with, endorsed or sponsored by Nintendo or Square Enix, PlatinumGames. All
-> trademarks belong to their owners. This repository contains **no game code, no game assets, no keys and no decryption
-> or dumping tools**. To use it you need a copy of the game that you bought, with its files extracted on your own console.
+> **Unofficial, non-commercial fan project.** Not affiliated with, endorsed or sponsored by the console maker or
+> Square Enix, PlatinumGames. All trademarks belong to their owners. This repository contains **no game code and no game assets**. To use
+> it you need a copy of the game that you bought, with its files extracted on your own console.
 
 ## Status
 
@@ -31,9 +31,9 @@ not supported (the graphics code relies on Adreno 650 behaviour and its stock Vu
 
 - Enough free space for the game plus about 1 GB for the shader cache and saves (internal storage or SD card).
 
-The app **does not accept NSP, XCI or NCA files and does not decrypt anything**: if the files are encrypted it will tell
-you and stop. This project does not explain how to dump or decrypt games and will not help with it. Please do not open
-issues asking for game files, keys or how to obtain them.
+Why folders only? The app is deliberately limited to reading game files that are already extracted as plain folders; it
+cannot open packaged or protected files, and it will tell you if the folder is not usable. This project does not explain
+how to obtain the files and will not help with it. Please do not open issues asking for game files or how to get them.
 
 ## Install and first run
 
@@ -66,14 +66,14 @@ APK
 └── NativeActivity
     ├── loader             maps main + subsdk* from the ExeFS, applies relocations, links imports,
     │                      patches the few instructions that cannot run on Android (svc, tpidrro_el0, counters)
-    └── libnnsdk.so        reimplementation of the Switch SDK the game imports: nn::os (threads, sync, memory),
+    └── libnnsdk.so        reimplementation of the console SDK the game imports: nn::os (threads, sync, memory),
         │                  nn::fs (RomFS, saves), nn::hid (controller), audio (AAudio), codecs, …
         └── nvn/           the NVN graphics API on top of Vulkan; the game's Maxwell shaders are translated to
                            SPIR-V with Eden's shader recompiler, then cached
 ```
 
 The SDK and NVN layers were written from scratch by observing what the game calls and with which values (there are no
-SDK headers or Nintendo code in this repository); comments next to each deduced value give the evidence. Code comments
+official SDK headers or code in this repository); comments next to each deduced value give the evidence. Code comments
 are mostly in Spanish.
 
 ## Building
@@ -101,14 +101,13 @@ components and their licenses are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY
 
 ## En español
 
-Port nativo para Android de la versión de Switch de **NieR:Automata The End of YoRHa Edition**. No es un emulador: el código ARM64 del juego corre
-directo en la CPU y este proyecto reimplementa el SDK de la consola y la API gráfica NVN sobre Vulkan.
+Port nativo para Android de la versión de consola de **NieR:Automata The End of YoRHa Edition**. El código ARM64 del juego corre directo en la
+CPU y este proyecto reimplementa el SDK de la consola y la API gráfica NVN sobre Vulkan.
 
 - **Necesitas tu propia copia del juego**, versión 1.0.2, con el ExeFS y la RomFS ya extraídos en tu consola, como
-  carpetas normales. La app **no acepta NSP/XCI/NCA ni descifra nada**. Este repositorio no tiene código ni archivos del
-  juego, ni claves, ni herramientas para volcar o descifrar.
+  carpetas normales: la app solo lee archivos ya extraídos. Este repositorio no tiene código ni archivos del juego.
 - Descarga la APK de [Releases](https://github.com/IamWilmar/nier-recomp/releases/latest) e instálala. Copia esas carpetas al
   dispositivo, abre la app, dale el permiso de archivos, elige la carpeta y pulsa *Iniciar juego*.
   Las partidas y la caché de shaders se guardan en esa misma carpeta.
-- Probado en la Retroid Pocket Flip 2. Proyecto de fans, sin ánimo de lucro, sin relación con Nintendo ni con
-  Square Enix, PlatinumGames.
+- Probado en la Retroid Pocket Flip 2. Proyecto de fans, sin ánimo de lucro, sin relación con el fabricante de la consola ni
+  con Square Enix, PlatinumGames.
