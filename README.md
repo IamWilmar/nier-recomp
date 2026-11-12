@@ -6,7 +6,7 @@
 **Retroid Pocket 5** and the **Retroid Pocket Flip 2** (Snapdragon 865), from **your own copy** of the game. The game's
 own ARM64 code runs directly on the device's CPU, while this project reimplements the parts of the console it talks to.
 
-> **Unofficial, non-commercial fan project.** Not affiliated with, endorsed or sponsored by the console maker or
+> **Free, unofficial fan project.** Not affiliated with, endorsed or sponsored by the console maker or
 > Square Enix, PlatinumGames. All trademarks belong to their owners. This repository contains **no game code and no game assets**. To use
 > it you need a copy of the game that you bought, with its files extracted on your own console.
 
@@ -111,6 +111,12 @@ pass `KEYSTORE=… KS_PASS=…`. For development, `tools/apk.sh` builds, install
 adb and prints its log. The Python scripts in `tools/` are analysis helpers that work on your own extracted files in
 `work/` (ignored by git).
 
+## Support
+
+Everything here is free and stays free: every build is public and the same for everyone, and donations do not unlock
+anything. If this port saved you a weekend and you want to say thanks, you can buy me a coffee at
+[ko-fi.com/iamwilmar](https://ko-fi.com/iamwilmar). It helps me keep working on these ports. Thank you!
+
 ## License
 
 GPL-3.0-or-later (see [LICENSE](LICENSE)), because it builds on Eden's shader recompiler (GPL-3.0-or-later). Third-party
@@ -131,5 +137,6 @@ CPU y este proyecto reimplementa el SDK de la consola y la API gráfica NVN sobr
 - Hecho exclusivamente para la Retroid Pocket 5 y la Retroid Pocket Flip 2 (Snapdragon 865, Adreno 650): todo está
   ajustado a ese chip y a sus límites (30 fps fijos con presupuesto de 33 ms por frame, ~2,7 GB de memoria libre, núcleos
   grandes para el juego). Probado en la Flip 2.
-- Proyecto de fans, sin ánimo de lucro, sin relación con el fabricante de la consola ni
+- Proyecto de fans, gratis (las donaciones son opcionales y no desbloquean nada), sin relación con el fabricante de la consola ni
   con Square Enix, PlatinumGames.
+- Si quieres apoyar el trabajo: [ko-fi.com/iamwilmar](https://ko-fi.com/iamwilmar). Es opcional y no desbloquea nada: todas las versiones son gratis e iguales para todos.
