@@ -79,6 +79,15 @@ may stutter while its shaders are translated and compiled; they are cached for t
   and a panel slides out over the game. It has a switch for the FPS counter (your choice is remembered) and *Change
   folder*, which brings the folder screen back the next time you open the app. The same swipe, a tap outside the panel
   or a few seconds without touching it hide it again.
+- **Save report** (settings panel): writes a folder `reports/<date>/` into the game folder with the log, a screenshot of
+  the moment you opened the panel, the frame times of the last seconds and basic device information (model, Android
+  version, memory). Nothing is sent anywhere. To report a problem, open an
+  [issue](https://github.com/IamWilmar/nier-recomp/issues) and attach those files (look at them first: the log contains the
+  names of your folders).
+- **Update notices** (settings panel, on by default): about eight seconds after the game starts, the app asks GitHub's
+  public API which release is the latest (a single request, without an account; nothing about you or your game is sent).
+  If there is a newer one, a banner says so and *Get vX.Y.Z* opens its page; install that APK over this one. Switch it
+  off and the app makes no network request at all.
 
 ## Options
 
@@ -89,6 +98,7 @@ at start-up.
 |---|---|
 | `lsfg/` | Frame generation (Lossless Scaling's LSFG) to show ~60 fps. Needs **your own** `Lossless.dll` from the Windows app *Lossless Scaling* (sold on Steam), copied into that `lsfg` folder or to `Download/Lossless.dll`. Not included here. |
 | `sin_fps` | Hides the FPS counter (the same switch as in the settings panel). |
+| `sin_avisos_version` | Turns the update notices off: no request to GitHub (the same switch as in the settings panel). |
 | `con_barras_sistema` | Keeps Android's navigation and status bars on screen. By default the app hides them while the game runs (swipe in from an edge to bring them up for a moment). Read when the game window gets focus. |
 | `botones_xbox`, `botones_retro` | Force the face buttons to be read by position (`botones_xbox`) or by name (`botones_retro`) if a controller comes out swapped. |
 | `registro` | Verbose log (line by line) plus a watchdog that prints the game's stack if it hangs. Slower: for debugging. |
@@ -159,6 +169,11 @@ CPU y este proyecto reimplementa el SDK de la consola y la API gráfica NVN sobr
   Retro), y cualquier otro mando, por USB o Bluetooth, se lee por posición. Deslizando un dedo desde el borde derecho de
   la pantalla sale un panel de ajustes, con el interruptor del contador de FPS y el de volver a elegir la
   carpeta. Con la carpeta ya elegida, la app abre el juego directamente.
+- En ese panel también está *Guardar reporte*: el log, una captura del momento en que abriste el panel e información del
+  aparato van a `reports/` dentro de la carpeta del juego, sin enviarse a ningún sitio; para avisar de un fallo, abre un
+  [issue](https://github.com/IamWilmar/nier-recomp/issues) y adjúntalos. Y los *avisos de versión* (encendidos de serie): al
+  abrir el juego, la app pregunta a la API pública de GitHub cuál es la última release (una sola petición, sin cuenta ni
+  datos tuyos) y, si hay una más nueva, lo avisa y *Descargar* abre su página. Apagados, la app no usa la red.
 - Proyecto de fans, gratis (las donaciones son opcionales y no desbloquean nada), sin relación con el fabricante de la consola ni
   con Square Enix, PlatinumGames.
 - Si quieres apoyar el trabajo: [ko-fi.com/iamwilmar](https://ko-fi.com/iamwilmar). Es opcional y no desbloquea nada: todas las versiones son gratis e iguales para todos.
