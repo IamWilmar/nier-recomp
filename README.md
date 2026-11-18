@@ -12,7 +12,7 @@ own ARM64 code runs directly on the device's CPU, while this project reimplement
 
 ## Status
 
-**Release 1.2.0 — playable.** The whole opening, the factory and the City Ruins open world run at a locked
+**Release 1.3.0 — playable.** The whole opening, the factory and the City Ruins open world run at a locked
 30 fps, upscaled from the game's dynamic 720p to 1080p with AMD FSR 1, with anisotropic filtering.
 
 - Optional frame generation to ~60 fps (see *Options*), off by default.
@@ -89,6 +89,7 @@ at start-up.
 |---|---|
 | `lsfg/` | Frame generation (Lossless Scaling's LSFG) to show ~60 fps. Needs **your own** `Lossless.dll` from the Windows app *Lossless Scaling* (sold on Steam), copied into that `lsfg` folder or to `Download/Lossless.dll`. Not included here. |
 | `sin_fps` | Hides the FPS counter (the same switch as in the settings panel). |
+| `con_barras_sistema` | Keeps Android's navigation and status bars on screen. By default the app hides them while the game runs (swipe in from an edge to bring them up for a moment). Read when the game window gets focus. |
 | `botones_xbox`, `botones_retro` | Force the face buttons to be read by position (`botones_xbox`) or by name (`botones_retro`) if a controller comes out swapped. |
 | `registro` | Verbose log (line by line) plus a watchdog that prints the game's stack if it hangs. Slower: for debugging. |
 
